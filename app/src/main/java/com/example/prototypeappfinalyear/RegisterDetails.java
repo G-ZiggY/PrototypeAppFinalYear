@@ -19,15 +19,22 @@ import android.widget.Toast;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class RegisterDetails extends AppCompatActivity {
 
-    TextInputLayout nameEdit, surnameEdit, nickEdit, dateFormat;
-    DatePickerDialog.OnDateSetListener onDateSetListener;
+    TextInputLayout nameEdit, surnameEdit, nickEdit;
+    EditText userDoB;
+    DatePickerDialog datePickerDialog;
     Button submitBtn;
-    String name, surname, nick, userDOB;
+    String name, surname, nick, zodiac;
+    Integer pathN;
 
+    /*
+    TODO: current time - date of birth = age
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,41 +49,38 @@ public class RegisterDetails extends AppCompatActivity {
         String email = intent.getStringExtra("email");
         String password = intent.getStringExtra("password");
 
-        final Calendar calendar = Calendar.getInstance();
-        int year = calendar.get(Calendar.YEAR);
-        int month = calendar.get(Calendar.MONTH);
-        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
 
         nameEdit = findViewById(R.id.nameEdit);
         surnameEdit = findViewById(R.id.surnameEdit);
         nickEdit = findViewById(R.id.nickEdit);
-        dateFormat = findViewById(R.id.dateFormat);
+        userDoB = findViewById(R.id.userDoB);
         submitBtn = findViewById(R.id.submitBtn);
 
-
-        dateFormat.setOnClickListener(new View.OnClickListener() {
+        userDoB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                 DatePickerDialog datePickerDialog = new DatePickerDialog
-                         (getApplicationContext(), android.R.style.Theme_Holo_Light_Dialog_MinWidth, onDateSetListener, year, month, day);
-                 datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                 datePickerDialog.show();
+                final Calendar calendar = Calendar.getInstance();
+                int year = calendar.get(Calendar.YEAR);
+                int month = calendar.get(Calendar.MONTH);
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+                datePickerDialog = new DatePickerDialog(RegisterDetails.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        userDoB.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
+                        zodiac_sign(dayOfMonth, month + 1);
+                        find_path(dayOfMonth, month + 1, year);
+                    }
+                }, year, month, day);
+                datePickerDialog.show();
             }
         });
-
-        onDateSetListener = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                month += 1;
-                String date = dayOfMonth + "/" + month + "/" + year;
-                userDOB = date;
-            }
-        };
 
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (nameEdit == null || surnameEdit == null || nickEdit == null || dateFormat == null){
+                if (nameEdit == null || surnameEdit == null || nickEdit == null || userDoB == null){
                     Toast.makeText(getApplicationContext(), "You need to complete all form fields!", Toast.LENGTH_LONG).show();
                 } else {
                     name = nameEdit.getEditText().getText().toString().trim();
@@ -88,78 +92,98 @@ public class RegisterDetails extends AppCompatActivity {
                     i.putExtra("name", name);
                     i.putExtra("surname", surname);
                     i.putExtra("nick", nick);
-                    i.putExtra("dob", userDOB);
+                    i.putExtra("dob", userDoB.getText().toString());
+                    i.putExtra("zodiac", zodiac);
+                    i.putExtra("pathN", pathN.toString());
                     startActivity(i);
                 }
             }
         });
     }
 
+    void find_path(int day, int month, int year){
+        int total = day + month + year;
+        List<Integer> arrTotal = new ArrayList<>();
+        while (total > 0){
+            arrTotal.add(total % 10);
+            total /= 10;
+        }
+        int finalN = 0;
+        for (int i = 0; i < arrTotal.size(); i++){
+            finalN += arrTotal.get(i);
+        }
+        List<Integer> arrFinal = new ArrayList<>();
+        while (finalN > 0){
+            arrFinal.add(finalN % 10);
+            finalN /= 10;
+        }
+        for (int i = 0; i < arrFinal.size(); i++){
+            pathN += arrFinal.get(i);
+        }
+    }
 
-//    private String getTodaysDate() {
-//        Calendar calendar = Calendar.getInstance();
-//        int year = calendar.get(Calendar.YEAR);
-//        int month = calendar.get(Calendar.MONTH);
-//        month += 1;
-//        int day = calendar.get(Calendar.DAY_OF_MONTH);
-//
-//        return makeDateString(day, month, year);
-//    }
-//
-//    private String makeDateString(int day, int month, int year) {
-//        return getMonthFormat(month) + " " + day + " " + year;
-//    }
-//
-//    private String getMonthFormat(int month) {
-//        if (month == 1)
-//            return "JAN";
-//        if (month == 2)
-//            return "FEB";
-//        if (month == 3)
-//            return "MAR";
-//        if (month == 4)
-//            return "ARP";
-//        if (month == 5)
-//            return "MAY";
-//        if (month == 6)
-//            return "JUN";
-//        if (month == 7)
-//            return "JUL";
-//        if (month == 8)
-//            return "AUG";
-//        if (month == 9)
-//            return "SEP";
-//        if (month == 10)
-//            return "OCT";
-//        if (month == 11)
-//            return "NOV";
-//        if (month == 12)
-//            return "DEC";
-//
-//        return "JAN";
-//    }
-//
-//    private void initDatePicker() {
-//        DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
-//                @Override
-//                public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-//                    month += 1;
-//                    String date = makeDateString(dayOfMonth, month, year);
-//                    dateBtn.setText(date);
-//                }
-//            };
-//
-//            Calendar calendar = Calendar.getInstance();
-//            int year = calendar.get(Calendar.YEAR);
-//            int month = calendar.get(Calendar.MONTH);
-//            int day = calendar.get(Calendar.DAY_OF_MONTH);
-//
-//            int style = AlertDialog.THEME_HOLO_DARK;
-//
-//            datePickerDialog = new DatePickerDialog(getApplicationContext(), style, dateSetListener, year, month, day);
-//    }
-//
-//    public void openDatePicker(View view) {
-//        datePickerDialog.show();
-//    }
+    void zodiac_sign(int day, int month){
+        if (month == 12){
+            if (day < 22){
+                zodiac = "Sagittarius";
+            } else
+                zodiac = "Capricorn";
+        } else if (month == 1){
+            if (day < 20){
+                zodiac = "Capricorn";
+            } else
+                zodiac = "Aquarius";
+        } else if (month == 2){
+            if (day < 19){
+                zodiac = "Aquarius";
+            } else
+                zodiac = "Pisces";
+        } else if (month == 3){
+            if (day < 21){
+                zodiac = "Pisces";
+            } else
+                zodiac = "Aries";
+        } else if (month == 4){
+            if (day < 20){
+                zodiac = "Aries";
+            } else
+                zodiac = "Taurus";
+        } else if (month == 5){
+            if (day < 21){
+                zodiac = "Taurus";
+            } else
+                zodiac = "Gemini";
+        } else if (month == 6){
+            if (day < 21){
+                zodiac = "Gemini";
+            } else
+                zodiac = "Cancer";
+        } else if (month == 7){
+            if (day < 23){
+                zodiac = "Cancer";
+            } else
+                zodiac = "Leo";
+        } else if (month == 8){
+            if (day < 23){
+                zodiac = "Leo";
+            } else
+                zodiac = "Virgo";
+        } else if (month == 9){
+            if (day < 23){
+                zodiac = "Virgo";
+            } else
+                zodiac = "Libra";
+        } else if (month == 10){
+            if (day < 23){
+                zodiac = "Libra";
+            } else
+                zodiac = "Scorpio";
+        } else if (month == 11){
+            if (day < 22){
+                zodiac = "Scorpio";
+            } else
+                zodiac = "Sagittarius";
+        }
+    }
+
 }

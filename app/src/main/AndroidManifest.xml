@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PrototypeAppFinalYear">
         <activity
-            android:name=".EditProfile"
+            android:name=".SearchActivity"
             android:exported="false" />
         <activity
             android:name=".SplashActivity"

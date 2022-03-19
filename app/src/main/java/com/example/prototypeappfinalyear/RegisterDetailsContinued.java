@@ -35,6 +35,8 @@ public class RegisterDetailsContinued extends AppCompatActivity {
         String surname = intent.getStringExtra("surname");
         String nick = intent.getStringExtra("nick");
         String dob = intent.getStringExtra("dob");
+        String zodiac = intent.getStringExtra("zodiac");
+        String pathN = intent.getStringExtra("pathN");
 
         // gender stuff
         genderInput = findViewById(R.id.genderInput);
@@ -134,6 +136,8 @@ public class RegisterDetailsContinued extends AppCompatActivity {
                 i.putExtra("surname", surname);
                 i.putExtra("nick", nick);
                 i.putExtra("dob", dob);
+                i.putExtra("zodiac", zodiac);
+                i.putExtra("pathN", pathN);
                 i.putExtra("gender", gender);
                 i.putExtra("interest", interest);
                 i.putExtra("country", country);

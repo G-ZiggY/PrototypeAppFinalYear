@@ -80,20 +80,31 @@
 
         <!-- DOB picker -->
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="15dp"-->
+<!--            android:id="@+id/userDoB">-->
+
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:hint="Date of birth"-->
+<!--                android:inputType="date"-->
+<!--                android:focusable="false"/>-->
+
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Date of birth"
             android:layout_marginTop="15dp"
-            android:id="@+id/dateFormat">
+            android:inputType="date"
+            android:focusable="false"
+            android:id="@+id/userDoB"/>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Date of birth"
-                android:inputType="date"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
 
 <!--            <AutoCompleteTextView-->
 <!--                android:id="@+id/nationalityInput"-->

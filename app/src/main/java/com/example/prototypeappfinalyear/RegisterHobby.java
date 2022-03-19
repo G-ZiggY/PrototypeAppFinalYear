@@ -36,7 +36,7 @@ public class RegisterHobby extends AppCompatActivity {
     FirebaseFirestore fireStore = FirebaseFirestore.getInstance();
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     DocumentReference documentReference;
-    String email, password, name, surname, nick, dob, gender, interest, country, nationality, height, occupation;
+    String email, password, name, surname, nick, dob, zodiac, pathN, gender, interest, country, nationality, height, occupation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +54,8 @@ public class RegisterHobby extends AppCompatActivity {
         surname = intent.getStringExtra("surname");
         nick = intent.getStringExtra("nick");
         dob = intent.getStringExtra("dob");
+        zodiac = intent.getStringExtra("zodiac");
+        pathN = intent.getStringExtra("pathN");
         gender = intent.getStringExtra("gender");
         interest = intent.getStringExtra("interest");
         country = intent.getStringExtra("country");
@@ -204,6 +206,8 @@ public class RegisterHobby extends AppCompatActivity {
                     user.put("surname", surname);
                     user.put("nick", nick);
                     user.put("dob", dob);
+                    user.put("zodiac", zodiac);
+                    user.put("pathN", pathN);
                     user.put("gender", gender);
                     user.put("interest", interest);
                     user.put("country", country);
@@ -215,7 +219,8 @@ public class RegisterHobby extends AppCompatActivity {
                     documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
-                            Log.d(TAG, "onSuccess: user Profile is created for " + userID);
+                            Log.d(TAG, "onSuccess: user Profile is created for "
+                                    + name + "\nID = " + userID);
                         }
                     });
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));

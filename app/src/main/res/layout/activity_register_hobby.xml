@@ -192,12 +192,16 @@
         android:id="@+id/travelOn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="136dp"
-        android:layout_marginEnd="27dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/hikingOn"
-        app:layout_constraintEnd_toStartOf="@+id/readingOn"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginStart="151dp"
+        android:layout_marginTop="448dp"
+        android:layout_marginEnd="260dp"
+        android:layout_marginBottom="191dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/readingOn"
