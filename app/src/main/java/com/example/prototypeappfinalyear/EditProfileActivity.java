@@ -1,21 +1,17 @@
 package com.example.prototypeappfinalyear;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.Manifest;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -31,7 +27,6 @@ public class EditProfileActivity extends AppCompatActivity {
 
     ImageView profilePic, profilePic_1, profilePic_2, profilePic_3, profilePic_4, profilePic_5, profilePic_6;
     public Uri imageUri;
-    private FirebaseStorage storage;
     private StorageReference storageReference;
     EditText aboutYou;
 
@@ -57,56 +52,38 @@ public class EditProfileActivity extends AppCompatActivity {
         profilePic_6 = findViewById(R.id.profilePic_6);
         aboutYou = findViewById(R.id.aboutYou);
 
-        storage = FirebaseStorage.getInstance();
+        FirebaseStorage storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference(); 
 
 
-        profilePic_1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                profilePic = profilePic_1;
-                choosePic();
-            }
+        profilePic_1.setOnClickListener(v -> {
+            profilePic = profilePic_1;
+            choosePic();
         });
 
-        profilePic_2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                profilePic = profilePic_2;
-                choosePic();
-            }
+        profilePic_2.setOnClickListener(v -> {
+            profilePic = profilePic_2;
+            choosePic();
         });
 
-        profilePic_3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                profilePic = profilePic_3;
-                choosePic();
-            }
+        profilePic_3.setOnClickListener(v -> {
+            profilePic = profilePic_3;
+            choosePic();
         });
 
-        profilePic_4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                profilePic = profilePic_4;
-                choosePic();
-            }
+        profilePic_4.setOnClickListener(v -> {
+            profilePic = profilePic_4;
+            choosePic();
         });
 
-        profilePic_5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                profilePic = profilePic_5;
-                choosePic();
-            }
+        profilePic_5.setOnClickListener(v -> {
+            profilePic = profilePic_5;
+            choosePic();
         });
 
-        profilePic_6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                profilePic = profilePic_6;
-                choosePic();
-            }
+        profilePic_6.setOnClickListener(v -> {
+            profilePic = profilePic_6;
+            choosePic();
         });
     }
 

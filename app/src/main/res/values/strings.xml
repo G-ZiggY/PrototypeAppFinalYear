@@ -30,6 +30,68 @@
     <string name="diy">DIY</string>
     <string name="selected_hobbies">Selected hobbies</string>
 
+    <string-array name="body_type">
+        <item>Athletic</item>
+        <item>Lazy</item>
+        <item>Skinny</item>
+    </string-array>
+
+    <string-array name="hair_color">
+        <item>Blonde</item>
+        <item>Brunette</item>
+        <item>Black</item>
+        <item>Red</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="hair_length">
+        <item>Very short</item>
+        <item>Short</item>
+        <item>Medium</item>
+        <item>Long</item>
+        <item>Very long</item>
+    </string-array>
+
+    <string-array name="eye_color">
+        <item>Amber</item>
+        <item>Blue</item>
+        <item>Brown</item>
+        <item>Gray</item>
+        <item>Green</item>
+        <item>Hazel</item>
+        <item>Red</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="active_hobby">
+        <item>Aerobics</item>
+        <item>Basketball</item>
+        <item>Dancing</item>
+        <item>Football</item>
+        <item>Golf</item>
+        <item>Gym</item>
+        <item>Hiking</item>
+        <item>Karate</item>
+        <item>Rock climbing</item>
+        <item>Running</item>
+        <item>Skating</item>
+        <item>Snooker</item>
+        <item>Swimming</item>
+        <item>Tennis</item>
+        <item>Yoga</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="skin_color">
+        <item>Rosy-pale</item>
+        <item>Light</item>
+        <item>Normal</item>
+        <item>Tan</item>
+        <item>Exotic</item>
+        <item>Medium</item>
+        <item>Dark</item>
+    </string-array>
+
     <string-array name="gender">
         <item>Male</item>
         <item>Female</item>

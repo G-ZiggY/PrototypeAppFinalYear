@@ -12,8 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PrototypeAppFinalYear">
         <activity
+            android:name=".RegisterAppearance"
+            android:exported="true" />
+        <activity
             android:name=".SearchActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".SplashActivity"
             android:exported="true">
@@ -33,7 +36,7 @@
             android:name=".RegisterHobby"
             android:exported="true" />
         <activity
-            android:name=".RegisterDetailsContinued"
+            android:name=".RegisterArea"
             android:exported="true" />
         <activity
             android:name=".RegisterActivity"

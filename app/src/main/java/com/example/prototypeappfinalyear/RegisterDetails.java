@@ -1,23 +1,19 @@
 package com.example.prototypeappfinalyear;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.view.View;
+import android.text.TextUtils;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -25,12 +21,14 @@ import java.util.List;
 
 public class RegisterDetails extends AppCompatActivity {
 
-    TextInputLayout nameEdit, surnameEdit, nickEdit;
-    EditText userDoB;
+//    TextInputLayout nameIL, surnameIL, nickIL, genderIL, interestIL;
+    TextInputEditText nameInput, nickInput, birthInput;
+    AutoCompleteTextView genderInput, interestInput, occupationInput;
+//    EditText birthInput;
     DatePickerDialog datePickerDialog;
     Button submitBtn;
-    String name, surname, nick, zodiac;
-    Integer pathN;
+    String name, nick, zodiac, gender, interest, occupation, dob;
+    Integer pathN = 0, dobDay = 0, dobMonth = 0, dobYear = 0;
 
     /*
     TODO: current time - date of birth = age
@@ -49,54 +47,92 @@ public class RegisterDetails extends AppCompatActivity {
         String email = intent.getStringExtra("email");
         String password = intent.getStringExtra("password");
 
+        nameInput = findViewById(R.id.nameInput);
+        nickInput = findViewById(R.id.nickInput);
+        occupationInput = findViewById(R.id.occupationInput);
+        genderInput = findViewById(R.id.genderInput);
+        interestInput = findViewById(R.id.interestInput);
+        birthInput = findViewById(R.id.birthInput);
 
-
-        nameEdit = findViewById(R.id.nameEdit);
-        surnameEdit = findViewById(R.id.surnameEdit);
-        nickEdit = findViewById(R.id.nickEdit);
-        userDoB = findViewById(R.id.userDoB);
         submitBtn = findViewById(R.id.submitBtn);
 
-        userDoB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final Calendar calendar = Calendar.getInstance();
-                int year = calendar.get(Calendar.YEAR);
-                int month = calendar.get(Calendar.MONTH);
-                int day = calendar.get(Calendar.DAY_OF_MONTH);
-
-                datePickerDialog = new DatePickerDialog(RegisterDetails.this, new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        userDoB.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
-                        zodiac_sign(dayOfMonth, month + 1);
-                        find_path(dayOfMonth, month + 1, year);
-                    }
-                }, year, month, day);
-                datePickerDialog.show();
-            }
+        // occupation adapter
+        ArrayAdapter<String> occupationAdapter = new ArrayAdapter<>(getApplicationContext(), R.layout.dropdown_item, getResources().getStringArray(R.array.occupation));
+        occupationInput.setAdapter(occupationAdapter);
+        occupationInput.setOnItemClickListener((parent, view, position, id) -> {
+            occupation = (String) parent.getItemAtPosition(position);
+            occupationInput.setHint(occupation);
         });
 
-        submitBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (nameEdit == null || surnameEdit == null || nickEdit == null || userDoB == null){
-                    Toast.makeText(getApplicationContext(), "You need to complete all form fields!", Toast.LENGTH_LONG).show();
-                } else {
-                    name = nameEdit.getEditText().getText().toString().trim();
-                    surname = surnameEdit.getEditText().getText().toString().trim();
-                    nick = nickEdit.getEditText().getText().toString().trim();
-                    Intent i = new Intent(getApplicationContext(), RegisterDetailsContinued.class);
-                    i.putExtra("email", email);
-                    i.putExtra("password", password);
-                    i.putExtra("name", name);
-                    i.putExtra("surname", surname);
-                    i.putExtra("nick", nick);
-                    i.putExtra("dob", userDoB.getText().toString());
-                    i.putExtra("zodiac", zodiac);
-                    i.putExtra("pathN", pathN.toString());
-                    startActivity(i);
-                }
+        // gender adapter
+        ArrayAdapter<String> genderAdapter = new ArrayAdapter<>(getApplicationContext(), R.layout.dropdown_item, getResources().getStringArray(R.array.gender));
+        genderInput.setAdapter(genderAdapter);
+        genderInput.setOnItemClickListener((parent, view, position, id) -> {
+            gender = (String) parent.getItemAtPosition(position);
+            genderInput.setHint(gender);
+        });
+
+        // occupation stuff
+        ArrayAdapter<String> interestAdapter = new ArrayAdapter<>(getApplicationContext(), R.layout.dropdown_item, getResources().getStringArray(R.array.interest));
+        interestInput.setAdapter(interestAdapter);
+        interestInput.setOnItemClickListener((parent, view, position, id) -> {
+            interest = (String) parent.getItemAtPosition(position);
+            interestInput.setHint(interest);
+        });
+
+//        datePickerDialog = new DatePickerDialog(RegisterDetails.this, (view, year1, month1, dayOfMonth) -> {
+//            birthInput.setText(dayOfMonth + "/" + (month1 + 1) + "/" + year1);
+//            dobDay = dayOfMonth;
+//            dobMonth = month1 +1;
+//            dobYear = year1;
+//            zodiac_sign(dayOfMonth, month1 + 1);
+//            find_path(dayOfMonth, month1 + 1, year1);
+//        }, year, month, day);
+//        datePickerDialog.show();
+
+        birthInput.setOnClickListener(v -> {
+            final Calendar calendar = Calendar.getInstance();
+            int year = calendar.get(Calendar.YEAR);
+            int month = calendar.get(Calendar.MONTH);
+            int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+            datePickerDialog = new DatePickerDialog(RegisterDetails.this, (view, year1, month1, dayOfMonth) -> {
+                birthInput.setText(dayOfMonth + "/" + (month1 + 1) + "/" + year1);
+                dobDay = dayOfMonth;
+                dobMonth = month1 +1;
+                dobYear = year1;
+                zodiac_sign(dayOfMonth, month1 + 1);
+                find_path(dayOfMonth, month1 + 1, year1);
+                dob = birthInput.getEditableText().toString().trim();
+            }, year, month, day);
+            datePickerDialog.show();
+        });
+
+        submitBtn.setOnClickListener(v -> {
+            if (TextUtils.isEmpty(nameInput.getText()) || TextUtils.isEmpty(occupation) ||
+                    TextUtils.isEmpty(nickInput.getText()) || TextUtils.isEmpty(birthInput.getText()) ||
+                    TextUtils.isEmpty(gender) || TextUtils.isEmpty(interest)){
+                Toast.makeText(getApplicationContext(), "You need to complete all form fields!", Toast.LENGTH_LONG).show();
+            } else {
+                name = nameInput.getEditableText().toString().trim();
+                nick = nickInput.getEditableText().toString().trim();
+                occupation = occupationInput.getText().toString().trim();
+                gender = genderInput.getText().toString().trim();
+                interest = interestInput.getText().toString().trim();
+                Intent i = new Intent(getApplicationContext(), RegisterArea.class);
+                i.putExtra("email", email);
+                i.putExtra("password", password);
+                i.putExtra("name", name);
+                i.putExtra("nick", nick);
+                i.putExtra("gender", gender);
+                i.putExtra("interest", interest);
+                i.putExtra("occupation", occupation);
+                i.putExtra("zodiac", zodiac);
+                i.putExtra("pathN", pathN.toString());
+                i.putExtra("dobDay", dobDay);
+                i.putExtra("dobMonth", dobMonth);
+                i.putExtra("dobYear", dobYear);
+                startActivity(i);
             }
         });
     }

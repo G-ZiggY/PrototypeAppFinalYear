@@ -26,29 +26,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:hint="Name"
-            android:id="@+id/nameEdit">
+            app:startIconDrawable="@drawable/ic_baseline_person_24">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingTop="16dp"
-                android:paddingBottom="16dp"
-                android:inputType="textPersonName" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- LAST NAME -->
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:hint="Last name"
-            android:id="@+id/surnameEdit">
-
-            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nameInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -58,6 +39,28 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+<!--        &lt;!&ndash; LAST NAME &ndash;&gt;-->
+
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="15dp"-->
+<!--            android:hint="Last name"-->
+<!--            android:id="@+id/surnameIL"-->
+<!--            app:startIconDrawable="@drawable/ic_baseline_person_24">-->
+
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:id="@+id/surnameET"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:inputType="textPersonName"-->
+<!--                android:paddingTop="16dp"-->
+<!--                android:paddingBottom="16dp" />-->
+
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+
         <!-- EMAIL -->
 
         <com.google.android.material.textfield.TextInputLayout
@@ -65,9 +68,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:id="@+id/nickEdit">
+            app:startIconDrawable="@drawable/ic_baseline_person_24">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nickInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -78,88 +82,94 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- DOB picker -->
+        <!-- OCCUPATION -->
 
-<!--        <com.google.android.material.textfield.TextInputLayout-->
-<!--            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="15dp"-->
-<!--            android:id="@+id/userDoB">-->
-
-<!--            <com.google.android.material.textfield.TextInputEditText-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:hint="Date of birth"-->
-<!--                android:inputType="date"-->
-<!--                android:focusable="false"/>-->
-
-<!--        </com.google.android.material.textfield.TextInputLayout>-->
-
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Date of birth"
             android:layout_marginTop="15dp"
-            android:inputType="date"
-            android:focusable="false"
-            android:id="@+id/userDoB"/>
+            android:hint="Occupation"
+            app:startIconDrawable="@drawable/ic_occupation">
 
+            <AutoCompleteTextView
+                android:id="@+id/occupationInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="none"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:text="Occupation"
+                android:scrollbars="vertical"/>
 
-<!--            <AutoCompleteTextView-->
-<!--                android:id="@+id/nationalityInput"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_weight="1"-->
-<!--                android:inputType="none"-->
-<!--                android:paddingTop="16dp"-->
-<!--                android:paddingBottom="16dp"/>-->
+        </com.google.android.material.textfield.TextInputLayout>
 
-<!--        &lt;!&ndash; STAR SIGN &ndash;&gt;-->
+        <!-- GENDER -->
 
-<!--        <com.google.android.material.textfield.TextInputLayout-->
-<!--            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="15dp"-->
-<!--            android:hint="@string/zodiac"-->
-<!--            app:startIconDrawable="@drawable/ic_star">-->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:hint="@string/gender"
+            app:startIconDrawable="@drawable/ic_gender">
 
-<!--            <AutoCompleteTextView-->
-<!--                android:id="@+id/starInput"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_weight="1"-->
-<!--                android:inputType="none"-->
-<!--                android:paddingTop="16dp"-->
-<!--                android:paddingBottom="16dp"-->
-<!--                android:text="@string/zodiac"-->
-<!--                android:scrollbars="vertical" />-->
+            <AutoCompleteTextView
+                android:id="@+id/genderInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="none"
+                android:text="@string/gender"
+                android:scrollbars="vertical" />
 
-<!--        </com.google.android.material.textfield.TextInputLayout>-->
+        </com.google.android.material.textfield.TextInputLayout>
 
-<!--        &lt;!&ndash; AGE &ndash;&gt;-->
+        <!-- INTEREST -->
 
-<!--        <com.google.android.material.textfield.TextInputLayout-->
-<!--            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="15dp"-->
-<!--            android:hint="@string/age"-->
-<!--            app:startIconDrawable="@drawable/ic_age">-->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:hint="@string/interest"
+            app:startIconDrawable="@drawable/ic_interest">
 
-<!--            <AutoCompleteTextView-->
-<!--                android:id="@+id/ageInput"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_weight="1"-->
-<!--                android:inputType="none"-->
-<!--                android:paddingTop="16dp"-->
-<!--                android:paddingBottom="16dp"-->
-<!--                android:text="@string/age"-->
-<!--                android:scrollbars="vertical"/>-->
+            <AutoCompleteTextView
+                android:id="@+id/interestInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="none"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:text="@string/interest"
+                android:scrollbars="vertical" />
 
-<!--        </com.google.android.material.textfield.TextInputLayout>-->
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:hint="Date of Birth"
+            app:startIconDrawable="@drawable/ic_calendar">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/birthInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="date"
+                android:focusable="false"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:text="Date of Birth"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <Button
             android:id="@+id/submitBtn"

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterHobby"
+    tools:context=".RegisterAppearance"
     android:background="@drawable/background">
 
     <LinearLayout
@@ -18,92 +18,155 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <!-- ACTIVE HOBBY -->
+
+        <!-- HEIGHT -->
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:hint="Active hobbies"
-            app:startIconDrawable="@drawable/ic_active_hobby">
+            android:hint="Height"
+            app:startIconDrawable="@drawable/ic_height">
 
             <AutoCompleteTextView
-                android:id="@+id/activeInput"
+                android:id="@+id/heightInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:inputType="none"
                 android:paddingTop="16dp"
                 android:paddingBottom="16dp"
-                android:text="Active hobbies"
+                android:text="Height"
                 android:scrollbars="vertical"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- CEREBRAL HOBBY -->
+        <!-- BODY TYPE -->
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:hint="Cerebral hobbies"
-            app:startIconDrawable="@drawable/ic_cerebral_hobby">
+            android:hint="Body type"
+            app:startIconDrawable="@drawable/ic_body">
 
             <AutoCompleteTextView
-                android:id="@+id/cerebralInput"
+                android:id="@+id/bodyInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:inputType="none"
-                android:paddingTop="16dp"
-                android:paddingBottom="16dp"
-                android:text="Cerebral hobbies"
-                android:scrollbars="vertical"/>
+                android:text="Body type"
+                android:scrollbars="vertical" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- CREATIVE HOBBY -->
+        <!-- HAIR COLOR -->
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:hint="Creative hobbies"
-            app:startIconDrawable="@drawable/ic_creative_hobby">
+            android:hint="Hair color"
+            app:startIconDrawable="@drawable/ic_hair_color">
 
             <AutoCompleteTextView
-                android:id="@+id/creativeInput"
+                android:id="@+id/hairColorInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:inputType="none"
                 android:paddingTop="16dp"
                 android:paddingBottom="16dp"
-                android:text="Creative hobbies"
-                android:scrollbars="vertical"/>
+                android:text="Hair color"
+                android:scrollbars="vertical" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- ABOUT USER -->
+        <!-- HAIR LENGTH -->
 
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:hint="About You">
+            android:hint="Hair length"
+            app:startIconDrawable="@drawable/ic_hair">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/aboutInput"
+            <AutoCompleteTextView
+                android:id="@+id/hairLengthInput"
                 android:layout_width="match_parent"
-                android:inputType="textMultiLine"
-                android:gravity="top"
-                android:lines="4"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="none"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:text="Hair length"
+                android:scrollbars="vertical" />
+
         </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- EYE COLOR -->
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:hint="Eye color"
+            app:startIconDrawable="@drawable/ic_eye">
+
+            <AutoCompleteTextView
+                android:id="@+id/eyeInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="none"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:text="Eye color"
+                android:scrollbars="vertical" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- SKIN COLOR -->
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:hint="Skin color"
+            app:startIconDrawable="@drawable/ic_interest">
+
+            <AutoCompleteTextView
+                android:id="@+id/skinInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="none"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:text="Skin color"
+                android:scrollbars="vertical" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <Button
+            android:id="@+id/submitBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="@color/pink"
+            android:text="@string/nextBtn"
+            android:textColor="@color/black"
+            tools:text="Next" />
+
 
     </LinearLayout>
 
@@ -113,29 +176,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="50dp"
-        android:layout_marginEnd="50dp"
-        android:gravity="center_horizontal"
-        android:text="Select your hobbies"
+        android:text="Select values that fit you the most"
         android:textColor="#4E342E"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-
-    <Button
-        android:id="@+id/submitBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="36dp"
-        android:text="Next"
-        android:backgroundTint="@color/pink"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
