@@ -10,10 +10,13 @@
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.18385416666666668" />
         <entry key="app/src/main/res/drawable/ic_launcher_logo_background.xml" value="0.18385416666666668" />
         <entry key="app/src/main/res/drawable/ic_nationality.xml" value="0.321025641025641" />
-        <entry key="app/src/main/res/layout/activity_edit_profile.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_edit_profile.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.5" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_register_appearance.xml" value="0.2033514492753623" />
+        <entry key="app/src/main/res/layout/activity_register_area.xml" value="0.20833333333333334" />
         <entry key="app/src/main/res/layout/activity_register_details.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/activity_register_details_continued.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_register_hobby.xml" value="0.3098958333333333" />

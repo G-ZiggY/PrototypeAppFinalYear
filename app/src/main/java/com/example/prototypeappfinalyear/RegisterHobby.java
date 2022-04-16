@@ -403,7 +403,7 @@ public class RegisterHobby extends AppCompatActivity {
                                     + name + "\nID = " + userID);
                         }
                     });
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                 } else {
                     Toast.makeText(getApplicationContext(), "Registration Error: " +
                             task.getException().getMessage(), Toast.LENGTH_SHORT).show();
