@@ -37,10 +37,10 @@ public class RegisterHobby extends AppCompatActivity {
     FirebaseFirestore fireStore = FirebaseFirestore.getInstance();
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     DocumentReference documentReference;
-    String email, password, name, surname, nick, dob, zodiac,
+    String email, password, name, nick, zodiac,
             pathN, gender, interest, country, state, city, nationality,
             height, bodyType, hairColor, hairLength, eyeColor, skinColor, aboutUser;
-    Integer dobDay, dobMonth, dobYear;
+    String dobDay, dobMonth, dobYear;
 
 
     AutoCompleteTextView activeInput, cerebralInput, creativeInput;
@@ -87,9 +87,9 @@ public class RegisterHobby extends AppCompatActivity {
         hairLength = intent.getStringExtra("hair_length");
         eyeColor = intent.getStringExtra("eye_color");
         skinColor = intent.getStringExtra("skin_color");
-        dobDay = intent.getIntExtra("dobDay", 0);
-        dobMonth = intent.getIntExtra("dobMonth", 0);
-        dobYear = intent.getIntExtra("dobYear", 0);
+        dobDay = intent.getStringExtra("dobDay");
+        dobMonth = intent.getStringExtra("dobMonth");
+        dobYear = intent.getStringExtra("dobYear");
 
         aboutInput = findViewById(R.id.aboutInput);
 

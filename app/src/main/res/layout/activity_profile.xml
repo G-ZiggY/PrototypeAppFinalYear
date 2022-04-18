@@ -1,9 +1,329 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileActivity">
+    android:background="#f0ffa0"
+    android:scrollIndicators="right"
+    android:scrollbarStyle="insideOverlay"
+    android:scrollbars="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/background">
+
+        <TextView
+            android:id="@+id/welcomeTV"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="@dimen/_5dp"
+            android:fontFamily="@font/berkshire_swash"
+            android:hint="Welcome"
+            android:textColor="#800033"
+            android:textSize="17dp" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profileIV"
+            android:layout_width="230dp"
+            android:layout_height="230dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/profile_holder"
+            app:civ_border_color="#800033"
+            app:civ_border_width="3dp" />
+
+        <ImageView
+            android:id="@+id/homeIV"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="@dimen/_10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="@dimen/_5dp"
+            android:layout_toRightOf="@+id/profileIV"
+            android:src="@drawable/home"
+            app:civ_border_color="#800033"
+            app:civ_border_width="3dp" />
+
+        <TextView
+            android:layout_width="55dp"
+            android:layout_height="35dp"
+            android:layout_below="@+id/homeIV"
+            android:layout_marginLeft="@dimen/_10dp"
+            android:layout_toRightOf="@+id/profileIV"
+            android:fontFamily="@font/berkshire_swash"
+            android:textColor="#800033"
+            android:gravity="center_horizontal"
+            android:textSize="10dp"
+            android:text="Home"/>
+
+
+        <ImageView
+            android:id="@+id/userIV"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="@dimen/_10dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginRight="@dimen/_5dp"
+            android:layout_toRightOf="@+id/profileIV"
+            android:src="@drawable/user_settings"
+            app:civ_border_color="#800033"
+            app:civ_border_width="3dp" />
+
+        <TextView
+            android:layout_width="55dp"
+            android:layout_height="35dp"
+            android:layout_below="@+id/userIV"
+            android:layout_toRightOf="@+id/profileIV"
+            android:fontFamily="@font/berkshire_swash"
+            android:layout_marginLeft="@dimen/_10dp"
+            android:textColor="#800033"
+            android:gravity="center_horizontal"
+            android:textSize="10dp"
+            android:text="Edit Profile"/>
+
+        <ImageView
+            android:id="@+id/app_settingsIV"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_toRightOf="@+id/profileIV"
+            android:layout_marginTop="160dp"
+            android:layout_marginLeft="@dimen/_10dp"
+            android:layout_marginRight="@dimen/_5dp"
+            android:src="@drawable/app_settings"
+            app:civ_border_color="#800033"
+            app:civ_border_width="3dp" />
+
+        <TextView
+            android:layout_width="55dp"
+            android:layout_height="35dp"
+            android:layout_below="@+id/app_settingsIV"
+            android:layout_toRightOf="@+id/profileIV"
+            android:fontFamily="@font/berkshire_swash"
+            android:layout_marginLeft="@dimen/_10dp"
+            android:gravity="center_horizontal"
+            android:text="App Settings"
+            android:textColor="#800033"
+            android:textSize="10dp" />
+
+        <ImageView
+            android:id="@+id/chatIV"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="@dimen/_10dp"
+            android:layout_marginTop="240dp"
+            android:layout_marginRight="@dimen/_5dp"
+            android:layout_toRightOf="@+id/profileIV"
+            android:src="@drawable/chat_image"
+            app:civ_border_color="#800033"
+            app:civ_border_width="3dp" />
+
+        <TextView
+            android:layout_width="55dp"
+            android:layout_height="35dp"
+            android:layout_below="@+id/chatIV"
+            android:layout_toRightOf="@+id/profileIV"
+            android:fontFamily="@font/berkshire_swash"
+            android:gravity="center_horizontal"
+            android:layout_marginLeft="@dimen/_10dp"
+            android:text="Chat"
+            android:textColor="#800033"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/locationTV"
+            android:layout_width="180dp"
+            android:layout_height="25dp"
+            android:layout_below="@+id/profileIV"
+            android:layout_marginLeft="65dp"
+            android:fontFamily="@font/berkshire_swash"
+            android:hint="location"
+            android:text=""
+            android:textSize="17dp" />
+
+        <TextView
+            android:id="@+id/nameTV"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_below="@+id/locationTV"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/berkshire_swash"
+            android:hint="name"
+            android:textColor="#800033"
+            android:textSize="17dp" />
+
+        <TextView
+            android:id="@+id/nickTV"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginLeft="15dp"
+            android:layout_below="@+id/nameTV"
+            android:fontFamily="@font/berkshire_swash"
+            android:hint="nick"
+            android:textColor="#800033"
+            android:textSize="17dp" />
+
+        <TextView
+            android:id="@+id/ageTV"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_below="@id/nickTV"
+            android:layout_marginLeft="15dp"
+            android:fontFamily="@font/berkshire_swash"
+            android:hint="age"
+            android:textColor="#800033"
+            android:textSize="17dp" />
+
+        <TextView
+            android:id="@+id/zodiacTV"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_below="@id/ageTV"
+            android:layout_marginLeft="15dp"
+            android:fontFamily="@font/berkshire_swash"
+            android:hint="zodiac"
+            android:textColor="#800033"
+            android:textSize="17dp" />
+
+        <TextView
+            android:id="@+id/activeHobbiesTV"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginLeft="15dp"
+            android:layout_below="@+id/zodiacTV"
+            android:fontFamily="@font/berkshire_swash"
+            android:textColor="#800033"
+            android:textSize="17dp"
+            android:hint="active hobbies"/>
+
+        <TextView
+            android:id="@+id/creativeHobbiesTV"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginLeft="15dp"
+            android:layout_below="@id/activeHobbiesTV"
+            android:fontFamily="@font/berkshire_swash"
+            android:textColor="#800033"
+            android:textSize="17dp"
+            android:hint="creative hobbies"/>
+
+        <TextView
+            android:id="@+id/cerebralHobbiesTV"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginLeft="15dp"
+            android:layout_below="@id/creativeHobbiesTV"
+            android:fontFamily="@font/berkshire_swash"
+            android:hint="cerebral hobbies"
+            android:textColor="#800033"
+            android:textSize="17dp" />
+
+        <TextView
+            android:id="@+id/heightTV"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginLeft="15dp"
+            android:layout_below="@id/cerebralHobbiesTV"
+            android:fontFamily="@font/berkshire_swash"
+            android:textColor="#800033"
+            android:textSize="17dp"
+            android:hint="height"/>
+
+        <TextView
+            android:id="@+id/eyeColorTV"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginLeft="15dp"
+            android:layout_below="@+id/interestTV"
+            android:fontFamily="@font/berkshire_swash"
+            android:textColor="#800033"
+            android:textSize="17dp"
+            android:hint="eye color"/>
+
+        <TextView
+            android:id="@+id/interestTV"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginLeft="15dp"
+            android:layout_below="@+id/heightTV"
+            android:fontFamily="@font/berkshire_swash"
+            android:textColor="#800033"
+            android:textSize="17dp"
+            android:hint="interest"/>
+
+        <TextView
+            android:id="@+id/hairColorTV"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginLeft="15dp"
+            android:layout_below="@+id/eyeColorTV"
+            android:fontFamily="@font/berkshire_swash"
+            android:textColor="#800033"
+            android:textSize="17dp"
+            android:hint="hair color"/>
+
+        <TextView
+            android:id="@+id/hairLengthTV"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginLeft="15dp"
+            android:layout_below="@id/hairColorTV"
+            android:fontFamily="@font/berkshire_swash"
+            android:textColor="#800033"
+            android:textSize="17dp"
+            android:hint="hair length"/>
+
+        <TextView
+            android:id="@+id/aboutTV"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="15dp"
+            android:layout_below="@+id/hairLengthTV"
+            android:fontFamily="@font/berkshire_swash"
+            android:textColor="#800033"
+            android:textSize="17dp"
+            android:hint="about user"/>
+
+        <TextView
+            android:id="@+id/bday"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="15dp"
+            android:layout_below="@+id/hairLengthTV"
+            android:fontFamily="@font/berkshire_swash"
+            android:textColor="#800033"
+            android:textSize="17dp"
+            android:hint="about user"/>
+
+
+        <TextView
+            android:id="@+id/bmonth"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="15dp"
+            android:layout_below="@+id/hairLengthTV"
+            android:fontFamily="@font/berkshire_swash"
+            android:textColor="#800033"
+            android:textSize="17dp"
+            android:hint="about user"/>
+
+        <TextView
+            android:id="@+id/byear"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="15dp"
+            android:layout_below="@+id/hairLengthTV"
+            android:fontFamily="@font/berkshire_swash"
+            android:textColor="#800033"
+            android:textSize="17dp"
+            android:hint="about user"/>
+
+
+    </RelativeLayout>
+</ScrollView>

@@ -129,9 +129,9 @@ public class RegisterDetails extends AppCompatActivity {
                 i.putExtra("occupation", occupation);
                 i.putExtra("zodiac", zodiac);
                 i.putExtra("pathN", pathN.toString());
-                i.putExtra("dobDay", dobDay);
-                i.putExtra("dobMonth", dobMonth);
-                i.putExtra("dobYear", dobYear);
+                i.putExtra("dobDay", String.valueOf(dobDay));
+                i.putExtra("dobMonth", String.valueOf(dobMonth));
+                i.putExtra("dobYear", String.valueOf(dobYear));
                 startActivity(i);
             }
         });

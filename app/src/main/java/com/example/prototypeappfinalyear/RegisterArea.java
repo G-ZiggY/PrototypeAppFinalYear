@@ -45,7 +45,7 @@ public class RegisterArea extends AppCompatActivity {
     TextInputLayout countryInputL, stateInputL, cityInputL;
     AutoCompleteTextView countryInput, nationalityInput, stateInput, cityInput;
     Button submitBtn;
-    String countryName = "", stateName = "", cityName = "", nationality, height, occupation;
+    String countryName = "", stateName = "", cityName = "", nationality;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,9 +66,9 @@ public class RegisterArea extends AppCompatActivity {
         String occupation = intent.getStringExtra("occupation");
         String zodiac = intent.getStringExtra("zodiac");
         String pathN = intent.getStringExtra("pathN");
-        Integer dobDay = intent.getIntExtra("dobDay", 2);
-        Integer dobMonth = intent.getIntExtra("dobMonth", 1);
-        Integer dobYear = intent.getIntExtra("dobYear", 1977);
+        String dobDay = intent.getStringExtra("dobDay");
+        String dobMonth = intent.getStringExtra("dobMonth");
+        String dobYear = intent.getStringExtra("dobYear");
 
         // nationality stuff
         nationalityInput = findViewById(R.id.nationalityTV);

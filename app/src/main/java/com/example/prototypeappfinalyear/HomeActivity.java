@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -39,7 +40,7 @@ public class HomeActivity extends AppCompatActivity {
 
     String userID;
 
-    CircleImageView profileIV, editProfileIV, appSettingsIV, chatIV;
+    ImageView profileIV, editProfileIV, appSettingsIV, chatIV;
 
 
     // on app start checks if user is logged in, if not, send to login activity
@@ -100,6 +101,11 @@ public class HomeActivity extends AppCompatActivity {
 
         editProfileIV.setOnClickListener(v -> {
             Intent i = new Intent(getApplicationContext(), EditProfile.class);
+            startActivity(i);
+        });
+
+        profileTV.setOnClickListener(v -> {
+            Intent i = new Intent(getApplicationContext(), ProfileActivity.class);
             startActivity(i);
         });
 

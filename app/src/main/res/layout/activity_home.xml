@@ -13,9 +13,9 @@
         android:id="@+id/appName"
         android:layout_width="350dp"
         android:layout_height="35dp"
-        android:src="@drawable/welcome3"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_10dp"
-        android:layout_centerHorizontal="true"/>
+        android:src="@drawable/welcome3" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profileIV"
@@ -29,6 +29,7 @@
 
     <TextView
         android:id="@+id/profileTV"
+        android:clickable="true"
         android:layout_width="120dp"
         android:layout_height="35dp"
         android:layout_marginLeft="5dp"
@@ -39,11 +40,11 @@
         android:textSize="17dp" />
 
 
-    <de.hdodenhof.circleimageview.CircleImageView
+    <ImageView
         android:id="@+id/user_settings"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="80dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/appName"
         android:layout_marginRight="@dimen/_5dp"
         android:layout_toRightOf="@+id/profileIV"
         android:src="@drawable/user_settings"
@@ -61,12 +62,13 @@
         android:textSize="10dp"
         android:text="Edit Profile"/>
 
-    <de.hdodenhof.circleimageview.CircleImageView
+    <ImageView
         android:id="@+id/app_settings"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_toRightOf="@+id/profileIV"
-        android:layout_marginTop="160dp"
+        android:layout_below="@+id/user_settings"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="@dimen/_5dp"
         android:src="@drawable/app_settings"
         app:civ_border_color="#800033"
@@ -83,12 +85,36 @@
         android:textColor="#800033"
         android:textSize="10dp" />
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/chat_button"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
+    <ImageView
+        android:id="@+id/search_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_toRightOf="@+id/profileIV"
-        android:layout_marginTop="240dp"
+        android:layout_below="@+id/app_settings"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="@dimen/_5dp"
+        android:src="@drawable/search"
+        app:civ_border_color="#800033"
+        app:civ_border_width="3dp" />
+
+    <TextView
+        android:layout_width="55dp"
+        android:layout_height="35dp"
+        android:layout_below="@+id/search_button"
+        android:layout_toRightOf="@+id/profileIV"
+        android:fontFamily="@font/berkshire_swash"
+        android:gravity="center_horizontal"
+        android:text="Search"
+        android:textColor="#800033"
+        android:textSize="10dp" />
+
+    <ImageView
+        android:id="@+id/chat_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_toRightOf="@+id/profileIV"
+        android:layout_below="@+id/search_button"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="@dimen/_5dp"
         android:src="@drawable/chat_image"
         app:civ_border_color="#800033"
@@ -115,14 +141,6 @@
         android:textColor="#800033"
         android:textSize="25dp" />
 
-    <Button
-        android:id="@+id/editProfile"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:text="Edit profile"
-        android:textStyle="bold|italic"
-        android:layout_marginTop="450dp"
-        android:layout_centerHorizontal="true"/>
 
     <Button
         android:id="@+id/logoutBtn"
